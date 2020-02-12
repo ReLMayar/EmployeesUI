@@ -1,0 +1,56 @@
+﻿<Window x:Class="EmployeesUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmployeesUI"
+        mc:Ignorable="d"
+        x:Name = "main"
+        Title="Сотрудники" Height="450" Width="850">
+    <Grid Height="Auto" Width="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="27*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListView Grid.RowSpan="9" x:Name="personData" Height="Auto" Width="Auto"
+                 IsSynchronizedWithCurrentItem="True"
+                  GridViewColumnHeader.Click="ColumnHeader_Click">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="Auto" Header="Фамилия" DisplayMemberBinding="{Binding First_name}"/>
+                    <GridViewColumn Width="Auto" Header="Имя" DisplayMemberBinding="{Binding Second_name}"/>
+                    <GridViewColumn Width="Auto" Header="Отчество" DisplayMemberBinding="{Binding Last_name}"/>
+                    <GridViewColumn Width="Auto" Header="Статус" DisplayMemberBinding="{Binding Status_name}"/>
+                    <GridViewColumn Width="Auto" Header="Отдел" DisplayMemberBinding="{Binding Deps_name}"/>
+                    <GridViewColumn Width="Auto" Header="Должность" DisplayMemberBinding="{Binding Posts_name}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <TextBlock Grid.Column = "1" Text="Поиск по фамилии:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
+        <TextBox Grid.Column ="1" Grid.Row="1" x:Name="search" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Width="160" Height="20" FontSize="15"/>
+
+        <TextBlock Grid.Column = "1" Grid.Row="2" Text="Сортировка по отделу:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
+        <ComboBox Grid.Column = "1" Grid.Row="3" x:Name="combobox_deps" HorizontalAlignment="Center" VerticalAlignment="Center" Width="160"/>
+
+        <TextBlock Grid.Column = "1" Grid.Row="4" Text="Сортировка по должности:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="13"/>
+        <ComboBox Grid.Column = "1" Grid.Row="5" x:Name="combobox_post" HorizontalAlignment="Center" VerticalAlignment="Center" Width="160"/>
+
+        <TextBlock Grid.Column = "1" Grid.Row="6" Text="Сортировка по статусу:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
+        <ComboBox Grid.Column = "1" Grid.Row="7" x:Name="combobox_status" HorizontalAlignment="Center" VerticalAlignment="Center" Width="160"/>
+
+        <Button Grid.Column = "1" Grid.Row="8" x:Name="clear" Content="Сбросить" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30"/>
+    </Grid>
+</Window>
