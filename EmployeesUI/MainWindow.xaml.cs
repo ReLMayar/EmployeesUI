@@ -248,11 +248,11 @@ namespace EmployeesUI
                         reader = sort.ExecuteReader();
 
                         personData.Items.Clear();
-                        List<Person> result = new List<Person>();
+                        persons = new List<Person>();
 
                         while (reader.Read())
                         {
-                            result.Add(new Person()
+                            persons.Add(new Person()
                             {
                                 First_name = reader[0].ToString(), Second_name = reader[1].ToString(),
                                 Last_name = reader[2].ToString(), Status_name = reader[3].ToString(),
@@ -260,7 +260,7 @@ namespace EmployeesUI
                             });
                         }
 
-                        foreach (Person person in result)
+                        foreach (Person person in persons)
                             personData.Items.Add(person);
                         reader.Close();
                     }
@@ -314,11 +314,11 @@ namespace EmployeesUI
 
                         var reader = command.ExecuteReader();
                         personData.Items.Clear();
-                        List<Person> result = new List<Person>();
+                        persons = new List<Person>();
 
                         while (reader.Read())
                         {
-                            result.Add(new Person()
+                            persons.Add(new Person()
                             {
                                 First_name = reader[0].ToString(), Second_name = reader[1].ToString(),
                                 Last_name = reader[2].ToString(), Status_name = reader[3].ToString(),
@@ -326,7 +326,7 @@ namespace EmployeesUI
                             });
                         }
 
-                        foreach (Person person in result)
+                        foreach (Person person in persons)
                             personData.Items.Add(person);
 
                         reader.Close();
@@ -378,11 +378,11 @@ namespace EmployeesUI
                         var reader = sort.ExecuteReader();
 
                         personData.Items.Clear();
-                        List<Person> result = new List<Person>();
+                        persons = new List<Person>();
 
                         while (reader.Read())
                         {
-                            result.Add(new Person()
+                            persons.Add(new Person()
                             {
                                 First_name = reader[0].ToString(), Second_name = reader[1].ToString(),
                                 Last_name = reader[2].ToString(), Status_name = reader[3].ToString(),
@@ -390,7 +390,7 @@ namespace EmployeesUI
                             });
                         }
 
-                        foreach (Person person in result)
+                        foreach (Person person in persons)
                             personData.Items.Add(person);
                         reader.Close();
                     }
@@ -431,11 +431,11 @@ namespace EmployeesUI
 
                 var reader = command.ExecuteReader();
                 personData.Items.Clear();
-                List<Person> result = new List<Person>();
+                persons = new List<Person>();
 
                 while (reader.Read())
                 {
-                    result.Add(new Person()
+                    persons.Add(new Person()
                     {
                         First_name = reader[0].ToString(), Second_name = reader[1].ToString(),
                         Last_name = reader[2].ToString(), Status_name = reader[3].ToString(),
@@ -443,7 +443,7 @@ namespace EmployeesUI
                     });
                 }
 
-                foreach (Person person in result)
+                foreach (Person person in persons)
                     personData.Items.Add(person);
 
                 reader.Close();
@@ -491,11 +491,11 @@ namespace EmployeesUI
                 var reader = command.ExecuteReader();
 
                 personData.Items.Clear();
-                List<Person> result = new List<Person>();
+                persons = new List<Person>();
 
                 while (reader.Read())
                 {
-                    result.Add(new Person()
+                    persons.Add(new Person()
                     {
                         First_name = reader[0].ToString(), Second_name = reader[1].ToString(),
                         Last_name = reader[2].ToString(), Status_name = reader[3].ToString(),
@@ -503,7 +503,7 @@ namespace EmployeesUI
                     });
                 }
 
-                foreach (Person person in result)
+                foreach (Person person in persons)
                     personData.Items.Add(person);
 
                 reader.Close();
@@ -531,8 +531,7 @@ namespace EmployeesUI
 
             #endregion
 
-            foreach (Person person in persons)
-                personData.Items.Add(person);
+            FormLoad(sender, e);
         }
 
         #endregion
